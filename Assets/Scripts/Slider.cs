@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 public class Slider : MonoBehaviour
 {
     private RectTransform rectTransform;
+    private Slides slides = Slides.aboutProduct;
     [Header("Slider")]
     [SerializeField] Vector2 slideLimits = new Vector2(0,3240);
     [SerializeField] ScrollRect scrollRect;
@@ -18,7 +20,7 @@ public class Slider : MonoBehaviour
     [Space]
     [Header("Hood Cover")]
 
-    [SerializeField] Vector2 yCoordinatsOfOpenHood = new Vector2(740, 1200);
+    [SerializeField] Vector2 yCoordinatsOfOpenHood = new Vector2(1780, 2250);
     [SerializeField] RectTransform hoodCover;
     private Vector2 angleOfOpen = new Vector2(42.2f, 0);
     [Space]
@@ -30,7 +32,11 @@ public class Slider : MonoBehaviour
     [Header("Buttons")]
     [SerializeField] Button upBotton;
     [SerializeField] Button downButton;
-    // Start is called before the first frame update
+    [Space]
+    [Header("Header Bar")]
+
+    [SerializeField] List<TMP_Text> namesOfSlides;
+    [SerializeField] List<Vector2> coordinatsOfSlides;
     void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
@@ -39,6 +45,8 @@ public class Slider : MonoBehaviour
         hoodCover.transform.eulerAngles = new Vector3(0, 0, angleOfOpen.x);
         magnifyingGlass.localScale = Vector2.zero;
 
+        slides = Slides.aboutProduct;
+        if (namesOfSlides.Count > 0) namesOfSlides[0].color = Color.gray;
 
         upBotton.onClick.AddListener(GoToSideOfPage);
     }
@@ -87,6 +95,26 @@ public class Slider : MonoBehaviour
             magnifyingGlass.localScale = new Vector2(currScale, currScale);
         }
 
+        
+        //colorize top header
+        int i = 0;
+        while(i < coordinatsOfSlides.Count){
+            if(rectTransform.localPosition.y > coordinatsOfSlides[i].x 
+                && rectTransform.localPosition.y < coordinatsOfSlides[i].y
+                && ((int)slides) != i
+                ) {
+                int j = 0;
+                while(j < namesOfSlides.Count) {
+                    namesOfSlides[j].color = Color.white;
+                j++;
+                }
+                namesOfSlides[i].color = Color.gray;
+                
+                slides = (Slides)i;
+            }
+            i++;
+        }
+        
     }
 
     private void ChangeCarState(bool car0Value, bool car1Value,  bool car2Value) {
@@ -117,5 +145,12 @@ public class Slider : MonoBehaviour
                 rectTransform.localPosition.y);
         }
         */
+    }
+
+    enum Slides {
+        aboutProduct = 0,
+        ñhallenge,
+        function,
+        advantages
     }
 }
