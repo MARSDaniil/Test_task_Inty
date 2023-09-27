@@ -7,9 +7,7 @@ public class Slider : MonoBehaviour
 {
     private RectTransform rectTransform;
     private Slides slides = Slides.aboutProduct;
-    [Header("Slider")]
-    [SerializeField] Vector2 slideLimits = new Vector2(0,3240);
-    [SerializeField] ScrollRect scrollRect;
+    
     [Space]
     [Header("Switch Car")]
     [SerializeField] Vector2 yCoordinatsOfSwithCars = new Vector2(300, 700);
@@ -54,11 +52,7 @@ public class Slider : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //controll of top and botton slide
-        if (rectTransform.localPosition.y < slideLimits.x) 
-            rectTransform.localPosition = new Vector2(rectTransform.localPosition.x,slideLimits.x);
-        if (rectTransform.localPosition.y > slideLimits.y) 
-            rectTransform.localPosition = new Vector2(rectTransform.localPosition.x,slideLimits.y);
+        
 
         //car switcher
         if (rectTransform.localPosition.y < yCoordinatsOfSwithCars.x

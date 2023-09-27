@@ -1,0 +1,160 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: BoardLocalization Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: BoardLocalization
+  m_TableCollectionNameGuidString: 3e1a3c917a429b446a98cd6089d2556d
+  m_Entries:
+  - m_Id: 150629236736
+    m_Key: carDamage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 510513102848
+    m_Key: about_txt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 685314916352
+    m_Key: "\u0441hallenge_txt"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 825798934528
+    m_Key: function_txt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 899274752000
+    m_Key: advantages_txt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1284186030080
+    m_Key: infoPartner_txt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1469574266880
+    m_Key: video_txt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1539736584192
+    m_Key: infoSave_txt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1690966409216
+    m_Key: registryInfo_txt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4506560741376
+    m_Key: independentModule_txt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4584935505920
+    m_Key: flexibleSettings_txt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4649028665344
+    m_Key: dataRegister_txt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4756457373696
+    m_Key: damageClassification_txt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4881753817088
+    m_Key: chellenge_title_text
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5245156704256
+    m_Key: challengeInfo0_text
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5538904784896
+    m_Key: challengeInfo1_text
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5682463227904
+    m_Key: portrait_txt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6753147404288
+    m_Key: menu_txt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6761229828096
+    m_Key: circlePortrait_txt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7307865079808
+    m_Key: function_title_txt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9562525777920
+    m_Key: text0Function_txt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9564467740672
+    m_Key: text1Function_txt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9565520510976
+    m_Key: text2Function_txt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9566493589504
+    m_Key: text3Function_txt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9569853227008
+    m_Key: text4Function_txt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10293219672064
+    m_Key: advantages_title_txt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10339763863552
+    m_Key: text0Advantages_txt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10745395003392
+    m_Key: text1Advantages_txt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10747538292736
+    m_Key: text2Advantages_txt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10751820677120
+    m_Key: text3Advantages_txt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11095199956992
+    m_Key: leftQR_txt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11097200640000
+    m_Key: rightQR0_txt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11556703420416
+    m_Key: rightQR1_txt
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 6479206049717157912
+  references:
+    version: 2
+    RefIds:
+    - rid: 6479206049717157912
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1695847310191
