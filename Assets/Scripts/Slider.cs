@@ -7,7 +7,9 @@ public class Slider : MonoBehaviour
 {
     private RectTransform rectTransform;
     private Slides slides = Slides.aboutProduct;
-    
+    [Header("Scroll")]
+    [SerializeField] ScrollRect scrollRect;
+    [SerializeField] List<Vector2> slidesCoordButton;
     [Space]
     [Header("Switch Car")]
     [SerializeField] Vector2 yCoordinatsOfSwithCars = new Vector2(300, 700);
@@ -35,8 +37,10 @@ public class Slider : MonoBehaviour
 
     [SerializeField] List<TMP_Text> namesOfSlides;
     [SerializeField] List<Vector2> coordinatsOfSlides;
-    void Awake()
-    {
+    [Space]
+    [Header("Titles")]
+    [SerializeField] List<Animation> titlesListAnim;
+    public void Init() {
         rectTransform = GetComponent<RectTransform>();
         ChangeCarState(true, false, false);
 
@@ -46,7 +50,8 @@ public class Slider : MonoBehaviour
         slides = Slides.aboutProduct;
         if (namesOfSlides.Count > 0) namesOfSlides[0].color = Color.gray;
 
-        upBotton.onClick.AddListener(GoToSideOfPage);
+        upBotton.onClick.AddListener(ScrollToTop);
+        downButton.onClick.AddListener(ScrollToBottom);
     }
 
     // Update is called once per frame
@@ -93,22 +98,25 @@ public class Slider : MonoBehaviour
         //colorize top header
         int i = 0;
         while(i < coordinatsOfSlides.Count){
+
             if(rectTransform.localPosition.y > coordinatsOfSlides[i].x 
                 && rectTransform.localPosition.y < coordinatsOfSlides[i].y
                 && ((int)slides) != i
                 ) {
                 int j = 0;
+
                 while(j < namesOfSlides.Count) {
                     namesOfSlides[j].color = Color.white;
                 j++;
                 }
                 namesOfSlides[i].color = Color.gray;
-                
                 slides = (Slides)i;
+
+                titlesListAnim[i].Play();
             }
             i++;
         }
-        
+
     }
 
     private void ChangeCarState(bool car0Value, bool car1Value,  bool car2Value) {
@@ -131,14 +139,24 @@ public class Slider : MonoBehaviour
                 rectTransform.localPosition.y + 0.1f * sign); 
         }
         */
-        Debug.Log("rectTransform.localPosition.y == " + rectTransform.localPosition.y);
         
-        /*
-        while (rectTransform.localPosition.y >= 0) {
+        
+        while (rectTransform.localPosition.y > 0) {
             rectTransform.localPosition = new Vector2(rectTransform.localPosition.x,
-                rectTransform.localPosition.y);
+                rectTransform.localPosition.y -  0.00001f*Time.deltaTime);
         }
-        */
+        
+    }
+
+
+    public void ScrollToTop() {
+
+        scrollRect.content.localPosition = slidesCoordButton[0];
+     //   slides = (Slides)0;
+    }
+    public void ScrollToBottom() {
+        scrollRect.content.localPosition = slidesCoordButton[slidesCoordButton.Count - 1];
+   //     slides = (Slides)3;
     }
 
     enum Slides {

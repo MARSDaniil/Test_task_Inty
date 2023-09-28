@@ -19,8 +19,10 @@ public class ScrollRectLimit : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isHorizontal) Limit(rectTransform.localPosition.x, slideLimitsStart.x, slideLimitsEnd.x);
-        else Limit(rectTransform.localPosition.y, slideLimitsStart.y, slideLimitsEnd.y);
+
+        if (!isHorizontal) Limit(rectTransform.localPosition.y, slideLimitsStart.y, slideLimitsEnd.y); 
+        else Limit(Mathf.Abs(rectTransform.localPosition.x), 
+            Mathf.Abs(slideLimitsStart.x), Mathf.Abs(slideLimitsEnd.x));
     }
 
     private void Limit(float value, float start, float finish) {
