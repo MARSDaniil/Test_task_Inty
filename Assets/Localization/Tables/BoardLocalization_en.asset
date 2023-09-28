@@ -1,0 +1,168 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: BoardLocalization_en
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: 3e1a3c917a429b446a98cd6089d2556d, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 150629236736
+    m_Localized: AUTOMATED ASSESSMENT OF CAR DAMAGE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 510513102848
+    m_Localized: About the product
+    m_Metadata:
+      m_Items: []
+  - m_Id: 685314916352
+    m_Localized: Challenge
+    m_Metadata:
+      m_Items: []
+  - m_Id: 825798934528
+    m_Localized: Functions
+    m_Metadata:
+      m_Items: []
+  - m_Id: 899274752000
+    m_Localized: Advantages
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1284186030080
+    m_Localized: For insurance companies, car sharing, government departments
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1469574266880
+    m_Localized: watch the video
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1539736584192
+    m_Localized: save information
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1690966409216
+    m_Localized: Included in the register of Russian software
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4506560741376
+    m_Localized: Independent modules based on computer vision
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4584935505920
+    m_Localized: Flexible settings for assessing the condition of the car
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4649028665344
+    m_Localized: Register of data from various photographic equipment (phone, traffic
+      camera)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4756457373696
+    m_Localized: Damage classification
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4881753817088
+    m_Localized: CHELLENGE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5245156704256
+    m_Localized: At the moment, there is no qualified assessment of damage at the
+      scene of an accident, which does not allow                                                       
+      guarantee
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5538904784896
+    m_Localized: 'Participants are not sure that the damage occurred
+
+      received
+      at the time of the current incident, rather than being present before the collision
+      (risk of fraudulent                                                                           
+      schemes for repeated compensation for the same damage).'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5682463227904
+    m_Localized: A participant in an accident cannot remotely file an insurance claim
+      in real time and receive a settlement
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6761229828096
+    m_Localized: Car sharing services do not have time to process the entire flow
+      of photos from clients, which increases costs and worsens the customer experience
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6753147404288
+    m_Localized: Insurance companies experience fraud or manual processing errors
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7307865079808
+    m_Localized: FUNCTIONS
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9569853227008
+    m_Localized: Automatic assessment of car sharing fleet in real time
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9566493589504
+    m_Localized: Automation of the process of initial repair cost estimation
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9565520510976
+    m_Localized: Anti-fraud system based on analysis of photographs from surveillance
+      cameras
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9564467740672
+    m_Localized: Assessment of changes in the condition of the car relative to past
+      inspections, highlighting only new damage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9562525777920
+    m_Localized: Automating the process of assessing the condition of a car using
+      an AI assistant
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10293219672064
+    m_Localized: ADVANTAGES
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10339763863552
+    m_Localized: Increased customer loyalty due to instant evaluation
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10745395003392
+    m_Localized: Reducing the risks of external and internal fraud
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10747538292736
+    m_Localized: Monitoring the condition of the vehicle fleet in real time
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10751820677120
+    m_Localized: Reduce ongoing costs for manual data processing
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11095199956992
+    m_Localized: download presentation
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11097200640000
+    m_Localized: follow the link
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11556703420416
+    m_Localized: to the product website
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []
