@@ -20,6 +20,8 @@ public class ScrollRectLimit : MonoBehaviour
     void Update()
     {
 
+       // if (isHorizontal) Debug.Log(rectTransform.localPosition.y);
+
         if (!isHorizontal) Limit(rectTransform.localPosition.y, slideLimitsStart.y, slideLimitsEnd.y); 
         else Limit(Mathf.Abs(rectTransform.localPosition.x), 
             Mathf.Abs(slideLimitsStart.x), Mathf.Abs(slideLimitsEnd.x));

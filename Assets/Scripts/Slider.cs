@@ -6,7 +6,7 @@ using TMPro;
 public class Slider : MonoBehaviour
 {
     private RectTransform rectTransform;
-    private Slides slides = Slides.aboutProduct;
+    public Slides slides = Slides.aboutProduct;
     [Header("Scroll")]
     [SerializeField] ScrollRect scrollRect;
     [SerializeField] List<Vector2> slidesCoordButton;
@@ -40,6 +40,7 @@ public class Slider : MonoBehaviour
     [Space]
     [Header("Titles")]
     [SerializeField] List<Animation> titlesListAnim;
+    [SerializeField] List<Animation> groupOfObjects;
     public void Init() {
         rectTransform = GetComponent<RectTransform>();
         ChangeCarState(true, false, false);
@@ -110,9 +111,12 @@ public class Slider : MonoBehaviour
                 j++;
                 }
                 namesOfSlides[i].color = Color.gray;
-                slides = (Slides)i;
 
-                titlesListAnim[i].Play();
+                if ((int)slides < i && i <groupOfObjects.Count-1) {
+                    titlesListAnim[i+1].Play();
+                    groupOfObjects[i+1].Play();
+                }
+                slides = (Slides)i;
             }
             i++;
         }
@@ -125,28 +129,6 @@ public class Slider : MonoBehaviour
         car2.gameObject.SetActive(car2Value);
     }
 
-    private void GoToSideOfPage() {
-        /*
-        float wereAreWeGo;
-        if (rectTransform.localPosition.y > 500) wereAreWeGo = 0;
-        else wereAreWeGo = 3240;
-        int sign;
-        if (wereAreWeGo > rectTransform.localPosition.y) sign = -1;
-        else sign = 1;
-
-        while(rectTransform.localPosition.y <= wereAreWeGo) {
-            rectTransform.localPosition = new Vector2(rectTransform.localPosition.x,
-                rectTransform.localPosition.y + 0.1f * sign); 
-        }
-        */
-        
-        
-        while (rectTransform.localPosition.y > 0) {
-            rectTransform.localPosition = new Vector2(rectTransform.localPosition.x,
-                rectTransform.localPosition.y -  0.00001f*Time.deltaTime);
-        }
-        
-    }
 
 
     public void ScrollToTop() {
@@ -159,7 +141,7 @@ public class Slider : MonoBehaviour
    //     slides = (Slides)3;
     }
 
-    enum Slides {
+    public enum Slides {
         aboutProduct = 0,
         ñhallenge,
         function,
