@@ -11,6 +11,7 @@ public class InGameUIManager : MonoBehaviour
     [Header("Lang button")]
     [SerializeField] Button langButtonEn;
     [SerializeField] Button langButtonRu;
+    [SerializeField] Button exitButton;
 
     private Locale locale = Locale.ru;
     private void Awake() {
@@ -21,6 +22,7 @@ public class InGameUIManager : MonoBehaviour
         slider.Init();
         langButtonRu.onClick.AddListener(SwitchLang);
         langButtonEn.onClick.AddListener(SwitchLang);
+        exitButton.onClick.AddListener(ExitBoard);
 
         locale = (Locale)0;
         langButtonRu.gameObject.SetActive(false);
@@ -44,6 +46,9 @@ public class InGameUIManager : MonoBehaviour
         locale = (Locale)newLocale;
     }
 
+    private void ExitBoard() {
+        Application.Quit();
+    }
     IEnumerator SetLocation(int _localeID) {
         yield return LocalizationSettings.InitializationOperation;
         LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[_localeID];

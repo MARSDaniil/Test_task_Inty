@@ -7,6 +7,7 @@ public class Slider : MonoBehaviour
 {
     private RectTransform rectTransform;
     public Slides slides = Slides.aboutProduct;
+    public Group group = Group.aboutProduct;
     [Header("Scroll")]
     [SerializeField] ScrollRect scrollRect;
     [SerializeField] List<Vector2> slidesCoordButton;
@@ -38,7 +39,8 @@ public class Slider : MonoBehaviour
     [SerializeField] List<TMP_Text> namesOfSlides;
     [SerializeField] List<Vector2> coordinatsOfSlides;
     [Space]
-    [Header("Titles")]
+    [Header("Animation")]
+    [SerializeField] List<Vector2> coordinatsOfGroup;
     [SerializeField] List<Animation> titlesListAnim;
     [SerializeField] List<Animation> groupOfObjects;
     public void Init() {
@@ -49,6 +51,7 @@ public class Slider : MonoBehaviour
         magnifyingGlass.localScale = Vector2.zero;
 
         slides = Slides.aboutProduct;
+        group = Group.aboutProduct;
         if (namesOfSlides.Count > 0) namesOfSlides[0].color = Color.gray;
 
         upBotton.onClick.AddListener(ScrollToTop);
@@ -58,8 +61,8 @@ public class Slider : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
 
+        Debug.Log(rectTransform.localPosition.y);
         //car switcher
         if (rectTransform.localPosition.y < yCoordinatsOfSwithCars.x
             && car0.gameObject.activeSelf == false) {
@@ -111,15 +114,29 @@ public class Slider : MonoBehaviour
                 j++;
                 }
                 namesOfSlides[i].color = Color.gray;
-
-                if ((int)slides < i && i <groupOfObjects.Count-1) {
-                    titlesListAnim[i+1].Play();
-                    groupOfObjects[i+1].Play();
-                }
                 slides = (Slides)i;
             }
             i++;
         }
+
+        //animation
+        i = 0;
+        while (i < coordinatsOfGroup.Count) {
+
+            if (rectTransform.localPosition.y > coordinatsOfGroup[i].x
+                && rectTransform.localPosition.y < coordinatsOfGroup[i].y
+                && ((int)group) != i
+                ) {
+                
+                if ((int)group < i) {
+                    titlesListAnim[i].Play();
+                    groupOfObjects[i].Play();
+                }
+                group = (Group)i;
+            }
+            i++;
+        }
+
 
     }
 
@@ -144,6 +161,14 @@ public class Slider : MonoBehaviour
     public enum Slides {
         aboutProduct = 0,
         ñhallenge,
+        function,
+        advantages
+    } 
+    public enum Group {
+        aboutProduct = 0,
+        horizontalSlide,
+        ñhallenge,
+        aboutChallenge,
         function,
         advantages
     }
