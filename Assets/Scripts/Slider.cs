@@ -6,7 +6,8 @@ using TMPro;
 public class Slider : MonoBehaviour
 {
     private RectTransform rectTransform;
-    private Slides slides = Slides.aboutProduct;
+    public Slides slides = Slides.aboutProduct;
+    public Group group = Group.aboutProduct;
     [Header("Scroll")]
     [SerializeField] ScrollRect scrollRect;
     [SerializeField] List<Vector2> slidesCoordButton;
@@ -38,8 +39,10 @@ public class Slider : MonoBehaviour
     [SerializeField] List<TMP_Text> namesOfSlides;
     [SerializeField] List<Vector2> coordinatsOfSlides;
     [Space]
-    [Header("Titles")]
+    [Header("Animation")]
+    [SerializeField] List<Vector2> coordinatsOfGroup;
     [SerializeField] List<Animation> titlesListAnim;
+    [SerializeField] List<Animation> groupOfObjects;
     public void Init() {
         rectTransform = GetComponent<RectTransform>();
         ChangeCarState(true, false, false);
@@ -48,6 +51,7 @@ public class Slider : MonoBehaviour
         magnifyingGlass.localScale = Vector2.zero;
 
         slides = Slides.aboutProduct;
+        group = Group.aboutProduct;
         if (namesOfSlides.Count > 0) namesOfSlides[0].color = Color.gray;
 
         upBotton.onClick.AddListener(ScrollToTop);
@@ -57,8 +61,8 @@ public class Slider : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
 
+        Debug.Log(rectTransform.localPosition.y);
         //car switcher
         if (rectTransform.localPosition.y < yCoordinatsOfSwithCars.x
             && car0.gameObject.activeSelf == false) {
@@ -111,11 +115,28 @@ public class Slider : MonoBehaviour
                 }
                 namesOfSlides[i].color = Color.gray;
                 slides = (Slides)i;
-
-                titlesListAnim[i].Play();
             }
             i++;
         }
+
+        //animation
+        i = 0;
+        while (i < coordinatsOfGroup.Count) {
+
+            if (rectTransform.localPosition.y > coordinatsOfGroup[i].x
+                && rectTransform.localPosition.y < coordinatsOfGroup[i].y
+                && ((int)group) != i
+                ) {
+                
+                if ((int)group < i) {
+                    titlesListAnim[i].Play();
+                    groupOfObjects[i].Play();
+                }
+                group = (Group)i;
+            }
+            i++;
+        }
+
 
     }
 
@@ -125,28 +146,6 @@ public class Slider : MonoBehaviour
         car2.gameObject.SetActive(car2Value);
     }
 
-    private void GoToSideOfPage() {
-        /*
-        float wereAreWeGo;
-        if (rectTransform.localPosition.y > 500) wereAreWeGo = 0;
-        else wereAreWeGo = 3240;
-        int sign;
-        if (wereAreWeGo > rectTransform.localPosition.y) sign = -1;
-        else sign = 1;
-
-        while(rectTransform.localPosition.y <= wereAreWeGo) {
-            rectTransform.localPosition = new Vector2(rectTransform.localPosition.x,
-                rectTransform.localPosition.y + 0.1f * sign); 
-        }
-        */
-        
-        
-        while (rectTransform.localPosition.y > 0) {
-            rectTransform.localPosition = new Vector2(rectTransform.localPosition.x,
-                rectTransform.localPosition.y -  0.00001f*Time.deltaTime);
-        }
-        
-    }
 
 
     public void ScrollToTop() {
@@ -159,9 +158,17 @@ public class Slider : MonoBehaviour
    //     slides = (Slides)3;
     }
 
-    enum Slides {
+    public enum Slides {
         aboutProduct = 0,
         ñhallenge,
+        function,
+        advantages
+    } 
+    public enum Group {
+        aboutProduct = 0,
+        horizontalSlide,
+        ñhallenge,
+        aboutChallenge,
         function,
         advantages
     }
